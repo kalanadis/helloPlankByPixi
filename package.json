@@ -1,0 +1,22 @@
+{
+  "name": "helloplank_pixi",
+  "version": "1.0.0",
+  "description": "Hello world to Plank.js From Pixi.js",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "kalana dissanayake",
+  "license": "WTFPL",
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "pixi.js": "^5.2.0",
+    "planck-js": "^0.3.10"
+  }
+}
