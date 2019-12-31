@@ -147,22 +147,26 @@ function init() {
         var bg_sprite = new PIXI.Sprite(bg_tex);
 
         //ADD FORCE
+        
         ball_sprite.interactive = true;
         ball_sprite.on('pointerdown', (evt) => {
 
+            console.log("CLICKED!!44");
             var p = pixiPositionToPlank(evt.data.global.x,evt.data.global.y);
-            var f =ball_body.getPosition();
+
+            var f = PLANK.Vec2(ball_body.getPosition());
             
             f = f.sub(p);//force direction
             f.normalize();
             f.mul(2);//force magnitude
-
+            ball_body.applyLinearImpulse(f, p, true);
+            /*
             if(f.y>0){
                 ball_body.applyLinearImpulse(f, p, true);
             }
-
+            */
         });
-
+        
 
         //collision check
         /*
@@ -171,6 +175,8 @@ function init() {
         pre-solve ==> handle pre-solve event
         and post-solve ==> handle post-solve event
         */
+        
+        
         plank_world.on('pre-solve', function(contact, oldManifold) {
             var manifold = contact.getManifold();
         
@@ -180,7 +186,7 @@ function init() {
             console.log("HIT!!");
             
         });
-
+        
         stage.addChild(bg_sprite);
         stage.addChild(ball_sprite);
 
